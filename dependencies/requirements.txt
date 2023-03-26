@@ -1,0 +1,4 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.12.1; sys_platform=='darwin'
+torchvision==0.13.1; sys_platform=='darwin'
+numpy==1.23.5

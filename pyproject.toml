@@ -1,0 +1,43 @@
+[tool.black]
+line-length = 119
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+files = 'face_segmentation/**/*.py, tests/**/*.py'
+ignore_missing_imports = true
+disable_error_code = ['override']
+
+[tool.pylint.design]
+max-args = 6
+
+[tool.pylint.format]
+max-line-length = 119
+good-names= ["p", "i", "k", "x1", "x2", "y1", "y2"]
+
+[tool.pylint.message_control]
+disable = [
+    'duplicate-code',
+    'missing-module-docstring',
+    'missing-function-docstring',
+    'missing-class-docstring',
+    'too-few-public-methods',
+    'unspecified-encoding',
+]
+
+[tool.pylint.similarities]
+min-similarity-lines=10
+
+[tool.pylint.typecheck]
+generated-members = 'torch.*, cv2.*'
+
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    'ignore:.*has been renamed to.* :UserWarning',
+    'ignore:.*FileType Enum is Deprecated.*:DeprecationWarning',
+    'ignore:.*the imp module is deprecated in favour of importlib.*:DeprecationWarning',
+    'ignore:.*is a deprecated alias for the builtin.*:DeprecationWarning',
+]

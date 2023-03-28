@@ -1,23 +1,13 @@
 {
 
     "python.formatting.provider": "black",
-
     "editor.formatOnSave": true,
-
-    "python.defaultInterpreterPath": "/Users/aleksandrgordeev/opt/miniconda3/envs/face_segmentation/bin/python",
-
+    "python.defaultInterpreterPath": "/Users/daniil_gusev/opt/anaconda3/envs/scratch/bin/python",
     "python.linting.enabled": true,
-
     "python.linting.flake8Enabled": true,
-
     "[python]": {
-
       "editor.codeActionsOnSave": {
-
             "source.organizeImports": true
-
         }
-
     }
-
 }

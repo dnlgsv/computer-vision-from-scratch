@@ -10,6 +10,7 @@ __pycache__/
 *.ipynb
 *.ipynb_checkpoints
 .DS_Store
+data-tmp/
 .Python
 build/
 develop-eggs/

@@ -18,9 +18,11 @@ def extract_patches(image: Tensor, patch_size: tuple) -> Tensor:
     assert image.shape[1] % height == 0
 
     number_of_patches = image.shape[1] // height * image.shape[2] // width
-    return (
+    patches = (
         image.unfold(1, height, width)
         .unfold(2, height, width)
         .reshape(3, number_of_patches, height, width)
         .permute(1, 0, 2, 3)
     )
+
+    return patches

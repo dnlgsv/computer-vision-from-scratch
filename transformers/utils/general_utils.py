@@ -12,10 +12,15 @@ def extract_patches(image: Tensor, patch_size: tuple) -> Tensor:
     Returns:
         Tensor: _description_
     """
-    # patches = list()
     height, width = patch_size
-    # for i in range(0, image.shape[1], height):
-    #     for j in range(0, image.shape[2], width):
-    #         patches.append()
+    assert patch_size[0] == patch_size[1]
+    assert image.shape[1] == image.shape[2]
+    assert image.shape[1] % height == 0
 
-    return image.unfold(0, height, width).unfold(1, height, width)
+    number_of_patches = image.shape[1] // height * image.shape[2] // width
+    return (
+        image.unfold(1, height, width)
+        .unfold(2, height, width)
+        .reshape(3, number_of_patches, height, width)
+        .permute(1, 0, 2, 3)
+    )

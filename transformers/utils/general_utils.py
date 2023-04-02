@@ -1,7 +1,7 @@
 from torch import Tensor
 
 
-def extract_patches(image: Tensor, patch_size: tuple, is_flattened: bool) -> Tensor:
+def extract_patches(image: Tensor, patch_size: tuple = (16, 16), is_flattened: bool = True) -> Tensor:
     """
     Takes an image and returns a sequance of patches with NxN size
 

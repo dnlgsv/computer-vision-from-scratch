@@ -6,7 +6,7 @@ target-version = ['py38']
 profile = "black"
 
 [tool.mypy]
-files = 'face_segmentation/**/*.py, tests/**/*.py'
+files = 'transformer/**/*.py, tests/**/*.py'
 ignore_missing_imports = true
 disable_error_code = ['override']
 

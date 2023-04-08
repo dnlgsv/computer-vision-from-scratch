@@ -1,13 +1,15 @@
 {
-
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
-    "python.defaultInterpreterPath": "/Users/daniil_gusev/opt/anaconda3/envs/scratch/bin/python",
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "[python]": {
-      "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "python.defaultInterpreterPath": "/Users/aleksandrgordeev/miniforge3/bin/python",
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
     }
+  },
+  "todo-tree.tree.showBadges": true
 }

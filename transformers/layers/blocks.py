@@ -44,7 +44,7 @@ class MultiHeadAttention(nn.Module):
         keys = (
             self.key_map(patches)
             .reshape(batch_dim, self.heads, patch_dim, feature_dim // self.heads)
-            .permute(0, 1, 2, 1)
+            .permute(0, 1, 3, 2)
         )
         values = self.value_map(patches).reshape(
             batch_dim,
@@ -53,8 +53,9 @@ class MultiHeadAttention(nn.Module):
             feature_dim // self.heads,
         )  # B x 12 x 197 x 64
 
-        attention = self.softmax(torch.bmm(queries, keys) / torch.sqrt(self.dim))  # B x 12 x 197 x 197
-        output = torch.bmm(attention, values).transpose(1, 2).reshape(batch_dim, patch_dim, feature_dim)
+        queries_x_keys = (queries @ keys) / (self.dim**0.5)
+        attention = self.softmax(queries_x_keys)  # B x 12 x 197 x 197
+        output = (attention @ values).transpose(1, 2).reshape(batch_dim, patch_dim, feature_dim)
         output = self.output_proj(output)
 
         return self.dropout(output)
